@@ -1,6 +1,14 @@
 DROP DATABASE IF EXISTS gamestore;
 CREATE DATABASE gamestore;
 USE gamestore;
+CREATE TABLE admindash (
+    id int NOT NULL AUTO_INCREMENT,
+    firstname varchar(65),
+    lastname varchar(65),
+    email varchar(255),
+    password varchar(255),
+    PRIMARY KEY(id)
+);
 CREATE TABLE user (
     id int NOT NULL AUTO_INCREMENT,
     fullname varchar(65),
