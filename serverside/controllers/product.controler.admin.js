@@ -1,9 +1,16 @@
 var db =require('../database/index')
 const bcrypt = require("bcrypt")
 const saltRounds=10
-
-var getALL=function(req,res){
+////////// get all products /////////
+var getAllProducts=function(req,res){
     db.query(`SELECT * FROM products `,(err,result)=>{
+    err?res.status(500).send(err):res.status(200).send(result)
+    })
+ 
+}
+//////// get all users //////// 
+var getAllUsers=function(req,res){
+    db.query(`SELECT * FROM admindash `,(err,result)=>{
     err?res.status(500).send(err):res.status(200).send(result)
     })
  
@@ -72,5 +79,12 @@ var loging=function(req,res){
     )
 
 }
+// var logout=function(req,res){
+//     req.session.destroy(function(err){
+//         if(!err){
+//             res.redirect('/')
+//         }
+//     })
+// }
 
-module.exports={getALL,register,loging,sessions}
+module.exports={getAllProducts,register,loging,sessions,getAllUsers}
