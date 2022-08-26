@@ -5,12 +5,12 @@ const bodyParser=require('body-parser');
 const cookieParser=require('cookie-parser');
 const session=require('express-session');
 const cors = require('cors');
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 
 app.use(cors({
-  origin:["http://localhost:3000"],
-  methods:["GET","post"],
+  origin:["http://localhost:5000","http://localhost:3000"],
+  methods:["GET","post","PATCH","PUT"],
   credentials:true
 }));
 app.use(cookieParser());
@@ -23,6 +23,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
+      
       expires: 60 * 60 * 24,
     },
   })
