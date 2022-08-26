@@ -16,6 +16,9 @@ import { Addgame } from "./Addgame";
 export const Products = () => {
   const[data,setData]=useState([])
   const [text, settext] = useState("")
+  const handledel=(x)=>{
+    setData(data.filter(el=>el.product_id!==x))
+  }
   
   useEffect(() => {
     axios
@@ -46,8 +49,8 @@ export const Products = () => {
 
           <main>
             {
-              data.filter(el=>el.title.includes(text)).map((el,i)=>(
-                 <Prodcard el={el} key={el.id}/>
+              data.filter((el,i)=>el.title.includes(text)).map((el,i)=>(
+                 <Prodcard el={el} key={i} del={handledel}/>
               ))
             }
 

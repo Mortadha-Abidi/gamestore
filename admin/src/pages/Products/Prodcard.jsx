@@ -2,7 +2,7 @@ import React from 'react'
 import { BsFillHeartFill } from "react-icons/bs";
 import AddModal from './AddModal';
 
-export const Prodcard = ({el}) => {
+export const Prodcard = ({el,del}) => {
   return (
     <div className="card_main">
       <img src={el.picture} alt="" className="card_main_img" />
@@ -31,7 +31,7 @@ export const Prodcard = ({el}) => {
       <div className="card_main_button">
         
         <AddModal/>
-        <button type="button" class="btn btn-danger">delete</button>
+        <button type="button" class="btn btn-danger" onClick={()=>del(el.product_id)}>delete</button>
         
       </div>
     </div>
